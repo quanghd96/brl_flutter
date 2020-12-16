@@ -12,4 +12,8 @@ class BroadlinkFlutter {
       "password": password,
     });
   }
+
+  static Future cancelConfig() async {
+    await _channel.invokeMethod('cancelConfig');
+  }
 }

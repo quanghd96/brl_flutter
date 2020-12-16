@@ -31,3 +31,8 @@ android {
         disable 'InvalidPackage'
     }
 }
+
+dependencies {
+    implementation 'com.ibroadlink:BLLetCoreAndroid:2.14.10'
+    implementation 'com.ibroadlink:BLLetBaseAndroid:2.13.4'
+}

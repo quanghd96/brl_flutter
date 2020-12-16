@@ -47,11 +47,18 @@ class _MyAppState extends State<MyApp> {
             ),
             const SizedBox(height: 10),
             RaisedButton(
-              onPressed: () {
-                BroadlinkFlutter.startConfig(
+              onPressed: () async {
+                final res = await BroadlinkFlutter.startConfig(
                     _ssidController.text, _passwordController.text);
+                print(res);
               },
               child: Text("Config"),
+            ),
+            RaisedButton(
+              onPressed: () {
+                BroadlinkFlutter.cancelConfig();
+              },
+              child: Text("Cancel"),
             ),
             const SizedBox(height: 30),
             Text("Result:"),
