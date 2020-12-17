@@ -13,6 +13,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   TextEditingController _ssidController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
+  String result = "";
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +51,9 @@ class _MyAppState extends State<MyApp> {
               onPressed: () async {
                 final res = await BroadlinkFlutter.startConfig(
                     _ssidController.text, _passwordController.text);
-                print(res);
+                setState(() {
+                  result = res.toString();
+                });
               },
               child: Text("Config"),
             ),
@@ -62,6 +65,7 @@ class _MyAppState extends State<MyApp> {
             ),
             const SizedBox(height: 30),
             Text("Result:"),
+            Text(result),
           ],
         ),
       ),

@@ -7,13 +7,13 @@ class BroadlinkFlutter {
       const MethodChannel('broadlink_flutter');
 
   static Future startConfig(String ssid, String password) async {
-    await _channel.invokeMethod('startConfig', {
+    return await _channel.invokeMethod('startConfig', {
       "ssid": ssid,
       "password": password,
     });
   }
 
   static Future cancelConfig() async {
-    await _channel.invokeMethod('cancelConfig');
+    return await _channel.invokeMethod('cancelConfig');
   }
 }

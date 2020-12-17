@@ -25,13 +25,13 @@
             BLDeviceConfigResult *res = [[BLLet sharedLet].controller deviceConfig:ssidName password:password version:3 timeout:60];
             NSLog(@"====Config over! Spends(%fs)", [date timeIntervalSinceNow]);
             dispatch_async(dispatch_get_main_queue(), ^{
-                if ([res succeed]) {
-                    NSLog(@"Configure Wi-Fi success");
-                    result(@"Configure Wi-Fi success");
-                } else {
-                    NSLog(@"Configure Wi-Fi error");
-                    result(@"Configure Wi-Fi error");
-                }
+                result(@{
+                    @"ip" : res.devaddr,
+                    @"mac" : res.mac,
+                    @"did" : res.did,
+                    @"status" : @(res.status),
+                    @"msg" : res.msg
+                       });
             });
         });
     } else if ([@"cancelConfig" isEqualToString:call.method]) {
