@@ -1,11 +1,38 @@
 PODS:
+  - AFNetworking (4.0.1):
+    - AFNetworking/NSURLSession (= 4.0.1)
+    - AFNetworking/Reachability (= 4.0.1)
+    - AFNetworking/Security (= 4.0.1)
+    - AFNetworking/Serialization (= 4.0.1)
+    - AFNetworking/UIKit (= 4.0.1)
+  - AFNetworking/NSURLSession (4.0.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (4.0.1)
+  - AFNetworking/Security (4.0.1)
+  - AFNetworking/Serialization (4.0.1)
+  - AFNetworking/UIKit (4.0.1):
+    - AFNetworking/NSURLSession
+  - BLLet/BLLetBase (2.15.6):
+    - AFNetworking
+  - BLLet/BLLetCore (2.15.6):
+    - BLLet/BLLetBase
   - broadlink_flutter (0.0.1):
+    - BLLet/BLLetBase
+    - BLLet/BLLetCore
     - Flutter
   - Flutter (1.0.0)
 
 DEPENDENCIES:
   - broadlink_flutter (from `.symlinks/plugins/broadlink_flutter/ios`)
   - Flutter (from `Flutter`)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - AFNetworking
+  https://github.com/ibroadlink/BLLibSpecs.git:
+    - BLLet
 
 EXTERNAL SOURCES:
   broadlink_flutter:
@@ -14,9 +41,11 @@ EXTERNAL SOURCES:
     :path: Flutter
 
 SPEC CHECKSUMS:
-  broadlink_flutter: b57468321489e280ce4176fbd13c1d00a20aef6a
+  AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
+  BLLet: 0ef20724bb458210da9198c7dd5b3ba7d4cfc5d8
+  broadlink_flutter: 142576c7b9cafb943d7245b27c8693425231fb73
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
 
-PODFILE CHECKSUM: 8e679eca47255a8ca8067c4c67aab20e64cb974d
+PODFILE CHECKSUM: d6e7e78b009d46b244e6f6ffd2d13b09df065156
 
-COCOAPODS: 1.10.0.rc.1
+COCOAPODS: 1.10.0
