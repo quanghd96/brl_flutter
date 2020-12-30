@@ -29,16 +29,21 @@ public class BroadlinkFlutterPlugin implements FlutterPlugin, MethodCallHandler 
     }
 
     @Override
-    public void onMethodCall(@NonNull MethodCall call, @NonNull Result result) {
+    public void onMethodCall(@NonNull MethodCall call, @NonNull final Result result) {
         if (call.method.equals("startConfig")) {
             String ssid = call.argument("ssid");
             String password = call.argument("password");
-            BLDeviceConfigParam configParam = new BLDeviceConfigParam();
+            final BLDeviceConfigParam configParam = new BLDeviceConfigParam();
             configParam.setSsid(ssid);
             configParam.setPassword(password);
             configParam.setVersion(3);
-            BLDeviceConfigResult configResult = mDevConfigModel.startConfig(configParam);
-            result.success(configResult);
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    BLDeviceConfigResult configResult = mDevConfigModel.startConfig(configParam);
+                    result.success(configResult);
+                }
+            }).start();
         } else if (call.method.equals("cancelConfig")) {
             mDevConfigModel.cancelConfig();
         } else {
